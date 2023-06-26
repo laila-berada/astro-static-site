@@ -1,0 +1,84 @@
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content flex-col lg:flex-row">
+    <div class="text-center lg:text-left">
+      <h1 class="text-5xl font-bold">Search now!</h1>
+      <form>
+        <label for="CNEInput"></label>
+        <input
+          type="text"
+          id="CNEInput"
+          name="CNEInput"
+          placeholder="Enter your CNE"
+          class="input input-bordered input-success w-full max-w-xs mt-6"
+          required
+        />
+        <button type="submit" class="btn btn-outline btn-success">Go</button>
+      </form>
+      <p class="py-6">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis illum
+        nulla vero neque iure, eos aperiam! Laboriosam adipisci iste, ex unde
+        atque sapiente tenetur ipsum quaerat dolorum quisquam fugiat. Rem.
+      </p>
+    </div>
+    <div class="card flex-shrink-0 w-1/2 max-w-2xl shadow-2xl bg-base-100">
+      <div class="card-body">
+        <label class="label">
+          <span class="label-text text-lg font-bold">CNE:</span>
+          <span class="label-text font-bold" id="cne">XXXXXXXXXX</span>
+        </label>
+        <label class="label">
+          <span class="label-text text-lg font-bold">CIN:</span>
+          <span class="label-text font-bold" id="cin">XXXXXXXXXX</span>
+        </label>        
+        <label class="label">
+          <span class="label-text text-lg font-bold">First Name AR:</span>
+          <span class="label-text font-bold" id="first_name_ar">XXXXXXXXXX</span>
+        </label>
+        <label class="label">
+          <span class="label-text text-lg font-bold">First Name FR:</span>
+          <span class="label-text font-bold" id="first_name_fr">XXXXXXXXXX</span>
+        </label>
+        <label class="label">
+          <span class="label-text text-lg font-bold">Last Name AR:</span>
+          <span class="label-text font-bold" id="first_name_ar">XXXXXXXXXX</span>
+        </label>
+        <label class="label">
+          <span class="label-text text-lg font-bold">Last Name FR:</span>
+          <span class="label-text font-bold" id="last_name_fr">XXXXXXXXXX</span>
+        </label>
+        <label class="label">
+          <span class="label-text text-lg font-bold">Birth Date:</span>
+          <span class="label-text font-bold" id="birth_date">XXXXXXXXXX</span>
+        </label>
+        <div class="divider">-</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const form = document.querySelector("form");
+  const CNEInput = document.querySelector("#CNEInput");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    // const response = await fetch(
+    //   `http://localhost:4000/api?CNE=${CNEInput.value}`
+    // );
+    const data = JSON.parse('{"birth_date":"06/06/2003","cin":"PB283608","cne":"G133414365","first_name_ar":"خولة","first_name_fr":"KHAOULA","last_name_ar":"بوشرويط","last_name_fr":"BOUCHEROUITE"}');
+    const birthDate = data.birth_date; // "06/06/2003"
+    const cin = data.cin; // "PB283608"
+    const cne = data.cne; // "G133414365"
+    const firstNameAr = data.first_name_ar; // "خولة"
+    const firstNameFr = data.first_name_fr; // "KHAOULA"
+    const lastNameAr = data.last_name_ar; // "بوشرويط"
+    const lastNameFr = data.last_name_fr; // "BOUCHEROUITE"
+
+    const myCne = document.querySelector('#cne');
+    myCne.textContent = cne
+    const myCin = document.querySelector('#cin');
+    myCin.textContent = cin
+    const myFistNameAR = document.querySelector('#first_name_ar');
+    myFistNameAR.textContent = firstNameAr
+
+  });
+</script>
